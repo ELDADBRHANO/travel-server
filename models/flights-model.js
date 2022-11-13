@@ -1,0 +1,48 @@
+const flights = [
+  {
+    id:1,
+    flightNum:34534,
+    departFrom:"Israel",
+    landOn:"USA",
+    numOfSits:45,
+    ETAtime:"18:40",
+    arrivalTime:"23:00",
+    isFirstClass:false,
+    sitsAvailable:20
+  },
+  {
+    id:2,
+    flightNum:4565,
+    departFrom:"TLV",
+    landOn:"NY",
+    numOfSits:50,
+    ETAtime:"12:00",
+    arrivalTime:"2300",
+    isFirstClass:true,
+    sitsAvailable:8
+  },
+  {
+    id:3,
+    flightNum:4354634,
+    departFrom:"LA",
+    landOn:"TLV",
+    numOfSits:56,
+    ETAtime:"5:00",
+    arrivalTime:"18:00",
+    isFirstClass:false,
+    sitsAvailable:6
+  },
+  {
+    id:4,
+    flightNum:4353454,
+    departFrom:"London",
+    landOn:"AFRICA",
+    numOfSits:55,
+    ETAtime:"16:50",
+    arrivalTime:"20:55",
+    isFirstClass:false,
+    sitsAvailable:4
+  }
+]
+
+module.exports = flights;
