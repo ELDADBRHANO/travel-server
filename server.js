@@ -3,9 +3,12 @@ const cors = require('cors');
 const travelRouter = require('./routes/travel-router');
 const flightsRouter = require('./routes/flightCaompanys-router');
 const flights = require('./routes/flight-router')
-
 const users = require('./models/users-model');
+const validatePassword = require('./validation/password-validation');
+
+
 const app = express();
+
 
 const middleWare=(req,res,next)=>{
   if(req.key)console.log('there is data');
