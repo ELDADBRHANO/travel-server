@@ -9,7 +9,7 @@ const {
 
 
 
-router.get('/countries',getCountries);
+router.get('/',getCountries);
 router.get('/getById/:id',getById);
 router.post('/createCountry',createCountry);
 router.put('/updateCountry/:id',updateCountry);

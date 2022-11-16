@@ -55,9 +55,6 @@ const findFlightsByDept = (req,res)=>{
   flightByDept? res.send(flightByDept):res.send('error')
 }
 
-const findByDeptAndLanding = (req,res)=>{
-  const deptAndLand = flights.filter(flight=>)
-}
 
 module.exports = {
   getFlights,
