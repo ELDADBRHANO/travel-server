@@ -1,11 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config()
 const express = require('express');
 const cors = require('cors');
 const travelRouter = require('./routes/travel-router');
 const flightsRouter = require('./routes/flightCaompanys-router');
 const flights = require('./routes/flight-router')
 const users = require('./models/users-model');
-const validatePassword = require('./validation/password-validation');
-
+const userRouter = require('./routes/user-router');
 
 const app = express();
 
@@ -31,10 +32,10 @@ const port = 5000
 app.use(cors());
 app.use(express.json({extended:true}));
 app.use(express.urlencoded({extended:true}));
+app.use('/user',middleWareForUsers,userRouter);
 app.use('/countries' ,travelRouter);
 app.use('/companyFlights',flightsRouter);
 app.use('/flights',middleWareForUsers,flights);
-
 
 app.get('/',(req,res)=>{
   res.send({message:"success"});
