@@ -1,20 +1,10 @@
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import './Card.css'
-// "id": 2,
-// "flightNum": 4565,
-// "departFrom": "TLV",
-// "landOn": "NY",
-// "numOfSits": 50,
-// "ETAtime": "12:00",
-// "arrivalTime": "2300",
-// "isFirstClass": true,
-// "sitsAvailable": 8
 const Cardf = ({ flight }) => {
   return (
-<div className="col-4 mt-5">
-
-
+<div className="d-flex justify-content-center col-md-4 col-sm-12 mt-5">
     <Card id="card" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={flight.image}/>
       <Card.Body>
