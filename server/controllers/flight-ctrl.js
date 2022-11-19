@@ -25,7 +25,7 @@ const updateFlight = (req, res) => {
 };
 
 const createFlight = (req, res) => {
-  const data = req.body.data;
+  const data = req.body;
   if(data){
     flights.push(data)
     return res.send('succes')

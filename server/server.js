@@ -2,11 +2,11 @@ const dotenv = require('dotenv');
 dotenv.config()
 const express = require('express');
 const cors = require('cors');
-const travelRouter = require('../routes/travel-router');
-const flightsRouter = require('../routes/flightCaompanys-router');
-const flights = require('../routes/flight-router')
+const travelRouter = require('./routes/travel-router');
+const flightsRouter = require('./routes/flightCaompanys-router');
+const flights = require('./routes/flight-router')
 const users = require('./models/users-model');
-const userRouter = require('../routes/user-router');
+const userRouter = require('./routes/user-router');
 
 const app = express();
 
@@ -35,7 +35,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/user',middleWareForUsers,userRouter);
 app.use('/countries' ,travelRouter);
 app.use('/companyFlights',flightsRouter);
-app.use('/flights',middleWareForUsers,flights);
+app.use('/flights',flights);
 
 app.get('/',(req,res)=>{
   res.send({message:"success"});
