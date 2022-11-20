@@ -15,8 +15,7 @@ const usersObj = [
     email:"lior@gmail.com",
     age:'23/05/1999',
     pass:"123"
-  }
-  ,
+  },
 
   {
     id:3,
@@ -36,4 +35,4 @@ const usersObj = [
     pass:"4567"
   }
 ]
-module.exports = usersObj
+module.exports = usersObj;

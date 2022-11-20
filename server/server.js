@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config()
 const express = require('express');
 const cors = require('cors');
+ require('./DB/db')
 const travelRouter = require('./routes/travel-router');
 const flightsRouter = require('./routes/flightCaompanys-router');
 const flights = require('./routes/flight-router')
