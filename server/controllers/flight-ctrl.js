@@ -1,4 +1,3 @@
-const { off } = require("../models/countries-model");
 const flights = require("../models/flights-model");
 
 const findIndexOfFlight = (req) => {
@@ -32,40 +31,32 @@ const getFlightsById = async (req, res) => {
     .catch(err=>{
       if(err) res.status(400).json({success:false, error:err})
     })
-  // const flight = flights.find((flight) => flight.id == req.params.id);
-  // flight ? res.send(flight) : res.send("error");
 };
 
-const updateFlight = (req, res) => {
-  const flightToUpdate = findIndexOfFlight(req);
-  if (flightToUpdate > -1) {
-    flights[flightToUpdate] = req.body.data;
-    return res.send("update successfully");
-  }
-  res.send("error");
-};
+const updateFlight = async (req, res) => {
+ await flights.findByIdAndUpdate(req.params.id,req.body)
+ .then(result=>res.status(200).json({success:true, result}))
+ .catch(err=>res.status(400).json({success:false, error:err}))
+}
 
 const createFlight = async (req, res) => {
-  // need to validate.
-  await flights.insertMany(req.body)
-  .then(()=>{
+  await flights.insertMany(req.body.flight)
+  .then((flight)=>{
+    if(flight.length==0){
+      return res.status(400).json({success:false, message:"Cant send empty fields!"})
+    }
     return res.status(300).json({success:true, message:"flight added successfully."})
   })
   .catch(err=>{
     res.status(400).json({success:false, error:err})
   })
-  // const data = req.body;
-  // if (data) {
-  //   flights.push(data);
-  //   return res.send("success");
-  // }
-  // res.send("error");
+
 };
 
-const deleteFlight = (req, res) => {
-  const flightToDelete = findIndexOfFlight(req);
-  const objToDelete = flights.splice(flightToDelete, 1);
-  objToDelete ? res.send("successfully deleted") : res.send("error");
+const deleteFlight = async (req, res) => {
+  await flights.findByIdAndDelete(req.params.id)
+  .then(()=>res.status(200).json({success:true}))
+  .catch(err=>res.status(401).json({success:false, error:err}))
 };
 
 const findByFlightNUmber = (req, res) => {
